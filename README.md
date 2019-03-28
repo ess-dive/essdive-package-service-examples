@@ -13,15 +13,25 @@ Provide feedback on the beta service to ess-dive-support@lbl.gov. A final versio
   java 11.0.1 2018-10-16 LTS
   
   First run the setup bash script to install all libraries dependancies.
-    ./setup.sh
+  
+  ```bash
+  ./setup.sh
+  ```
+  
   Then to compile the Java code:
-    ./run.sh
+  
+  ```bash
+  ./run.sh
+  ```
   
 #### To use the Python example you need to install request using (we recommend using a virtual environment): 
   pip install requests
   
   To run your script: 
-    python examples.py
+  
+  ```bash
+  python examples.py
+  ```
   
 #### To use the R example you need to install *R scripting front-end version 3.5.2 (2018-12-20)* and few libraries:
   require("jsonlite")
