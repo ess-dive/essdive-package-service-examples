@@ -30,16 +30,24 @@ Provide feedback on the package service to ess-dive-support@lbl.gov.
   pip install requests
   ```
   
+  To setup your script: 
+  
+    Enter your ESS-DIVE authentication token inside .config and then run the following:
+      ```
+      source .config
+      ```
   To run your script: 
-  
+
   ```bash
-  python examples.py
+  python <function_file_name>.py
   ```
   
-#### To use the R example you need to install *R scripting front-end version 3.5.2 (2018-12-20)* and few libraries:
-  ```
-  require("jsonlite")
-  require("httr")
-  library(readr)
+#### To use the R example you need to install *R scripting front-end version 3.5.2 (2018-12-20)*:
+To setup your script: 
+  Enter your ESS-DIVE authentication token inside config.r
+To run your script: 
+
+  ```bash
+  Rscript <function_file_name>.r
   ```
   
