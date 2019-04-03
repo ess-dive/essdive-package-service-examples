@@ -4,7 +4,7 @@ from setup import *
 # you can place them all inside the files directory and use the following code:
 
 files_tuples_array = []
-files_directory = "../example_files/"
+files_directory = "../../data/files/"
 files = os.listdir(files_directory)
 
 files_tuples_array.append((("json-ld", json.dumps(json_ld))))

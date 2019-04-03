@@ -10,6 +10,6 @@ header_authorization <- paste("bearer",token, sep=" ")
 endpoint <- "packages"
 
 #TODO: Add your file directory here
-# file_path <- "~/directory/to/your/jsonld/file"
-jsonld_path <- "../JSONLD_examples/example-2.jsonld"
+# jsonld_path <- "~/directory/to/your/jsonld/file"
+jsonld_path <- "../../data/JSON-LD/example-2.jsonld"
 json_file <- read_file(jsonld_path)

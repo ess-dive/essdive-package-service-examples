@@ -4,7 +4,7 @@ from setup import *
 # you need to create a folder named files and add your desired file to upload inside it.
 
 files_tuples_array = []
-files_directory = "../example_files/"
+files_directory = "../../data/files/"
 file_name = "text_file.txt" # TODO: Add your file name here
 file_directory = "{}{}".format(files_directory, file_name)
 
