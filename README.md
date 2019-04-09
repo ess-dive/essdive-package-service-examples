@@ -8,19 +8,19 @@ Provide feedback on the package service to ess-dive-support@lbl.gov.
 
 ### Repository folder hierarchy: 
 
-|-- code                # Coding examples in three programming languages - includes all basic API functionalities.
+- code                ( Coding examples in three programming languages - includes all basic API functionalities. )
 
-|    |---- [java](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/java)               # Java coding example.
+    - [java](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/java)         ( Java coding example. )
 
-|    |---- [python](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/python)              # Python coding example.
+    - [python](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/python)               ( Python coding example. )
 
-|    |---- [r](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/r)                    # R coding example.
+    - [r](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/r)                     ( R coding example. )
 
-|-- data               # data files that are used in the examples.
+- data               ( Data files that are used in the examples. )
 
-|    |---- [files](https://github.com/ess-dive/essdive-package-service-examples/tree/master/data/files)                    # File examples to be uploaded using the package service.
+    - [files](https://github.com/ess-dive/essdive-package-service-examples/tree/master/data/files)                     ( File examples to be uploaded using the package service. )
 
-|    |---- [JSON-LD](https://github.com/ess-dive/essdive-package-service-examples/tree/master/data/JSON-LD)             # JSON-LDs example files that demonstrate required fields usage. 
+    - [JSON-LD](https://github.com/ess-dive/essdive-package-service-examples/tree/master/data/JSON-LD)             ( JSON-LDs example files that demonstrate required fields usage. )
 
  **For all examples, you need to add your token into the token variable as well as adding any customizations to run certain functions.  For example, an identifier to run the get package function. You will find all the needed field with a *TODO* comment next to it.**
 
