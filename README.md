@@ -6,19 +6,33 @@ The ESS-DIVE Package service allows you to submit JSON-LD data package metadata 
 
 Provide feedback on the package service to ess-dive-support@lbl.gov. 
 
+### Repository folder hierarchy: 
+
+- code                ( Coding examples in three programming languages - includes all basic API functionalities. )
+
+    - [java](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/java)         ( Java coding example. )
+
+    - [python](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/python)               ( Python coding example. )
+
+    - [r](https://github.com/ess-dive/essdive-package-service-examples/tree/master/code/r)                     ( R coding example. )
+
+- data               ( Data files that are used in the examples. )
+
+    - [files](https://github.com/ess-dive/essdive-package-service-examples/tree/master/data/files)                     ( File examples to be uploaded using the package service. )
+
+    - [JSON-LD](https://github.com/ess-dive/essdive-package-service-examples/tree/master/data/JSON-LD)             ( JSON-LDs example files that demonstrate required fields usage. )
 
  **For all examples, you need to add your token into the token variable as well as adding any customizations to run certain functions.  For example, an identifier to run the get package function. You will find all the needed field with a *TODO* comment next to it.**
 
-#### To use the Java example you need to install java 11: 
-  java 11.0.1 2018-10-16 LTS
+#### To use the Java example you need to install `java 11.0.1 2018-10-16 LTS`:
   
-  First run the setup bash script to install all libraries dependancies.
+ ###### First run the setup bash script to install all libraries dependancies.
   
   ```bash
   ./setup.sh
   ```
   
-  Then to compile the Java code:
+  ###### Then to compile the Java code:
   
   ```bash
   ./run.sh
@@ -30,24 +44,25 @@ Provide feedback on the package service to ess-dive-support@lbl.gov.
   pip install requests
   ```
   
-  To setup your script: 
+ ###### To setup your script: 
   
-    Enter your ESS-DIVE authentication token inside .config and then run the following:
-      ```
-      source .config
-      ```
-  To run your script: 
+  Enter your ESS-DIVE authentication token inside `.config` and then run the following:
+    
+  ```
+  source .config
+  ```
+ ###### To run your script: 
 
   ```bash
   python <function_file_name>.py
   ```
   
-#### To use the R example you need to install *R scripting front-end version 3.5.2 (2018-12-20)*:
-To setup your script: 
-  Enter your ESS-DIVE authentication token inside config.r
-To run your script: 
+#### To use the R example you need to install `R scripting front-end` version 3.5.2 (2018-12-20):
+###### To setup your script: 
+  Enter your ESS-DIVE authentication token in `config.r` file.
+  
+###### To run your script: 
 
   ```bash
   Rscript <function_file_name>.r
   ```
-  

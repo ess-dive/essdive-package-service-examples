@@ -14,7 +14,7 @@ source("config.r")
 # To submit the metadata and data files, create a folder and
 # add your data files to it then execute the following code:
 
-file_path <- "../example_files/text_file.txt"
+file_path <- "../../data/files/text_file.txt"
 call_post_package <- paste(base,endpoint, sep="")
 
 #TODO Add your file directory
