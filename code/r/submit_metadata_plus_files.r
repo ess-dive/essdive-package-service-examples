@@ -15,11 +15,28 @@ source("config.r")
 # add your data files to it then execute the following code:
 
 file_path <- "../../data/files/text_file.txt"
-call_post_package <- paste(base,endpoint, sep="")
+call_post_package <- paste(base,endpoint, sep="/")
 
 #TODO Add your file directory
-post_package = POST(call_post_package, body=list("json-ld"=json_file, data=upload_file(file_path, "text/csv")),add_headers(Authorization=header_authorization, "Content-Type"="multipart/form-data"))
+post_package = POST(call_post_package, body=list("json-ld"=json_file, 
+                                                 data=upload_file(file_path, "text/csv")),
+                    add_headers(Authorization=header_authorization, "Content-Type"="multipart/form-data"))
 
 # Review the results
 
-content(post_package)
+# Transform the result into a data frame. (Ignore warning)
+post_package_text <- content(post_package, "text")
+post_package_json <- fromJSON(post_package_text)
+
+# Check the status and review the results
+if(!http_error(post_package) ){
+  attributes(post_package_json)
+  cat("View URL: ")
+  cat(post_package_json$viewUrl)
+  cat("\n")
+  cat("Name: ")
+  cat(post_package_json$dataset$name)
+}else {
+  http_status(post_package)
+  message(post_package_text)
+}
