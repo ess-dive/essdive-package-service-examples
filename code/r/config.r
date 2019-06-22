@@ -5,7 +5,7 @@ require("readr")
 
 #TODO: Add your token here
 token <- "<Enter your authentication token here>" 
-base <- "https://api-sandbox.ess-dive.lbl.gov/"
+base <- "https://api-sandbox.ess-dive.lbl.gov"
 header_authorization <- paste("bearer",token, sep=" ")
 endpoint <- "packages"
 
