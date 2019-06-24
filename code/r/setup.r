@@ -12,3 +12,4 @@ installPackage <- function(packageName)
 installPackage("httr")
 installPackage("jsonlite")
 installPackage("readr")
+

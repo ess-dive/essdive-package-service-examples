@@ -8,7 +8,7 @@ source("config.r")
  
  #TODO Add your package ID here
 id <- "<Place an ESS-DIVE identifier here>"
-call_get_package <- paste(base,endpoint,"/",id, sep="")
+call_get_package <- paste(base,endpoint,id, sep="/")
 get_package = GET(call_get_package,
     add_headers(Authorization=header_authorization))
 
