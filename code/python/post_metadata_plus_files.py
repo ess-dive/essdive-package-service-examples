@@ -16,9 +16,12 @@ post_package_response = requests.post(post_packages_url,
                                     headers={"Authorization":header_authorization},
                                     files= files_tuples_array)
 
-if post_package_response.status_code == 200:
+if post_package_response.status_code == 201:
    # Success
-   print(post_package_response.json())
+
+   response=post_package_response.json()
+   print(f"View URL:{response['viewUrl']}")
+   print(f"Name:{response['dataset']['name']}")
 else:
    # There was an error
    print(post_package_response.text)

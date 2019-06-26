@@ -5,19 +5,24 @@ from setup import *
 # (See https://data-sandbox.ess-dive.lbl.gov/#view/doi:10.3334/CDIAC/spruce.001).
 
 
-# Submit the JSON-LD object to the package service
+# Update the JSON-LD object to a package service
 
-post_packages_url = "{}{}".format(base,endpoint)
-post_package_response = requests.post(post_packages_url,
+id = "<Enter an ESS-DIVE Identifier here>"
+
+put_package_url = "{}{}/{}".format(base,endpoint,id)
+
+metadata_update_dict = {"name": "Updated Dataset Name"}
+
+put_package_response = requests.put(put_package_url,
                                     headers={"Authorization":header_authorization},
-                                    json=json_ld)
+                                    json=metadata_update_dict)
 
-if post_package_response.status_code == 201:
+if put_package_response.status_code == 200:
    # Success
-   response=post_package_response.json()
+   response=put_package_response.json()
    print(f"View URL:{response['viewUrl']}")
    print(f"Name:{response['dataset']['name']}")
 else:
    # There was an error
-   print(post_package_response.text)
+   print(put_package_response.text)
 

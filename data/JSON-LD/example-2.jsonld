@@ -65,7 +65,6 @@
             "license": "http://creativecommons.org/licenses/by/4.0/",
             "spatialCoverage": [
                 {
-                    "identifier": "Site ID: S1 Bog Site name: S1 Bog",
                     "description": "Site ID: S1 Bog Site name: S1 Bog, Marcell Experimental Forest Description: The site is the 8.1-ha S1 bog, a Picea mariana [black spruce] - Sphagnum spp. ombrotrophic bog forest in northern Minnesota, 40 km north of Grand Rapids, in the USDA Forest Service Marcell Experimental Forest (MEF). The S1 bog was harvested in successive strip cuts in 1969 and 1974 and the cut areas were allowed to naturally regenerate. Stations 1 and 2 are located in a 1974 strip that is characterized by a medium density of 3-5 meter black spruce and larch trees with an open canopy. The area was suitable for siting a monitoring station for representative meteorological conditions on the S1 bog. Station 3 is located in a 1969 harvest strip that is characterized by a higher density of 3-5 meter black spruce and larch trees with a generally closed canopy. Measurements at this station represent conditions in the surrounding stand. Site Photographs are in the attached document",
                     "geo": [
                         {
@@ -98,7 +97,6 @@
             },
             "provider": {
                 "name": "SPRUCE",
-                "sameAs": "https://mnspruce.ornl.gov/",
                 "member": {
                     "@id": "http://orcid.org/0000-0001-7293-3561",
                     "givenName": "Paul J",
