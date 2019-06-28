@@ -201,19 +201,19 @@ public static void main(String[] args) {
             uploadFile.addHeader("Authorization", header_authorization);
             File file_to_upload = new File("/files/text_file.txt"); // TODO: Add your file directory
       
-            String content = FileUtils.readFileToString(file_to_upload);
+            String content = FileUtils.readFileToString(file_to_upload, "UTF-8");
             
             FormBodyPart bodyPart = FormBodyPartBuilder.create()                    
             .setName("files")
             .addField("Content-Disposition", "form-data; name=\"data\"; filename=\"text_file.txt\"") // TODO: Add your file name
-            .setBody(new StringBody(content))
+            .setBody(new StringBody(content, ContentType.TEXT_PLAIN))
             .build();
 
             MultipartEntityBuilder builder = MultipartEntityBuilder.create()
             .setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
             .setContentType(ContentType.MULTIPART_FORM_DATA);
             
-            builder.addPart("json-ld", new StringBody(JSON_LD.toString()));
+            builder.addPart("json-ld", new StringBody(JSON_LD.toString(), ContentType.TEXT_PLAIN));
             builder.addPart(bodyPart);
             
             uploadFile.setEntity(builder.build());
@@ -346,20 +346,20 @@ public static void main(String[] args) {
             uploadFile.addHeader("Authorization", header_authorization);
             File file_to_upload = new File("/files/text_file.txt"); // TODO: Add your file directory
 
-            String content = FileUtils.readFileToString(file_to_upload);
+            String content = FileUtils.readFileToString(file_to_upload, "UTF-8");
 
 
             FormBodyPart bodyPart = FormBodyPartBuilder.create()
             .setName("files")
             .addField("Content-Disposition", "form-data; name=\"data\"; filename=\"text_file.txt\"") // TODO: Add your file name
-            .setBody(new StringBody(content))
+            .setBody(new StringBody(content, ContentType.TEXT_PLAIN))
             .build();
 
             MultipartEntityBuilder builder = MultipartEntityBuilder.create()
             .setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
             .setContentType(ContentType.MULTIPART_FORM_DATA);
 
-            builder.addPart("json-ld", new StringBody(JSON_LD_update.toString()));
+            builder.addPart("json-ld", new StringBody(JSON_LD_update.toString(), ContentType.TEXT_PLAIN));
             builder.addPart(bodyPart);
 
 
