@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.HttpResponse;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -65,7 +66,6 @@ public static void main(String[] args) {
 
   // JSON_LD provider spruce assignment  
   provider_spruce_json.put("name","SPRUCE");
-  provider_spruce_json.put("sameAs","https://mnspruce.ornl.gov/");
   provider_spruce_json.put("member",member);
   
   // JSON_LD primary creator assignment  
@@ -115,7 +115,6 @@ public static void main(String[] args) {
   keywords.add("Climate Change");
   
   // JSON_LD spatial coverage assignment  
-  spatial_coverage_json.put("identifier","Site ID: S1 Bog Site name: S1 Bog");
   spatial_coverage_json.put("description","Site ID: S1 Bog Site name: S1 Bog, Marcell Experimental Forest Description: The site is the 8.1-ha S1 bog, a Picea mariana [black spruce] - Sphagnum spp. ombrotrophic bog forest in northern Minnesota, 40 km north of Grand Rapids, in the USDA Forest Service Marcell Experimental Forest (MEF). The S1 bog was harvested in successive strip cuts in 1969 and 1974 and the cut areas were allowed to naturally regenerate. Stations 1 and 2 are located in a 1974 strip that is characterized by a medium density of 3-5 meter black spruce and larch trees with an open canopy. The area was suitable for siting a monitoring station for representative meteorological conditions on the S1 bog. Station 3 is located in a 1969 harvest strip that is characterized by a higher density of 3-5 meter black spruce and larch trees with a generally closed canopy. Measurements at this station represent conditions in the surrounding stand. Site Photographs are in the attached document");
   spatial_coverage_json.put("geo", geo);
   
@@ -298,7 +297,90 @@ public static void main(String[] args) {
         } catch (Exception ex) {
              System.out.print(ex.getMessage().toString());
             }
-            
+
+
+          // Update a Data package
+      // The following lines of code will update the metadata for a data package that you have permissions to edit.
+
+      try{
+            String id = "<Enter an ESS-DIVE Identifier here>"; // TODO: Add data package id
+            JSONObject JSON_LD_update = new JSONObject();
+            JSON_LD_update.put("name","Updated dataset"); // Your update dictionary
+            String url = base + endpoint + "/" + id;
+            HttpPut request = new HttpPut(url);
+            StringEntity params = new StringEntity(JSON_LD_update.toString()); //Setting the JSON-LD Object to the request params
+            request.addHeader("content-type", "application/json");
+            request.addHeader("Authorization", header_authorization);
+            request.setEntity(params);
+
+            HttpResponse response;
+            response = httpClient.execute(request);
+            HttpEntity entity = response.getEntity();
+            String responseString = EntityUtils.toString(entity, "UTF-8");
+
+            System.out.println(response.getStatusLine().getStatusCode());
+            System.out.println(response.toString());
+            System.out.println(response.getStatusLine());
+
+            if(response.getStatusLine().getStatusCode() == 200){
+                 System.out.println(response.toString());
+                 System.out.println("Dataset updated");
+                 System.out.println(responseString);
+            } else {
+                 System.out.println(response.getStatusLine().getReasonPhrase());
+                 System.out.println(responseString);
+            }
+            } catch (Exception ex) {
+                 System.out.print(ex.getMessage().toString());
+            }
+
+      // Update a Data package with a file.
+      // The following lines of code will update the metadata for a data package that you have permissions to edit.
+
+
+       try{
+             String id = "<Enter an ESS-DIVE Identifier here>"; // TODO: Add data package id
+            JSONObject JSON_LD_update = new JSONObject();
+            JSON_LD_update.put("name","Updated dataset"); // Your update dictionary
+            String url = base + endpoint + "/" + id;
+            HttpPut uploadFile = new HttpPut(url);
+            uploadFile.addHeader("Authorization", header_authorization);
+            File file_to_upload = new File("/files/text_file.txt"); // TODO: Add your file directory
+
+            String content = FileUtils.readFileToString(file_to_upload);
+
+
+            FormBodyPart bodyPart = FormBodyPartBuilder.create()
+            .setName("files")
+            .addField("Content-Disposition", "form-data; name=\"data\"; filename=\"text_file.txt\"") // TODO: Add your file name
+            .setBody(new StringBody(content))
+            .build();
+
+            MultipartEntityBuilder builder = MultipartEntityBuilder.create()
+            .setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
+            .setContentType(ContentType.MULTIPART_FORM_DATA);
+
+            builder.addPart("json-ld", new StringBody(JSON_LD_update.toString()));
+            builder.addPart(bodyPart);
+
+
+            uploadFile.setEntity(builder.build());
+
+            CloseableHttpResponse response = httpClient.execute(uploadFile);
+            HttpEntity responseEntity = response.getEntity();
+
+            String responseString = EntityUtils.toString(responseEntity, "UTF-8");
+
+            System.out.println(response.getStatusLine().getStatusCode());
+            System.out.println(response.toString());
+            System.out.println(response.getStatusLine());
+
+            System.out.println(responseString);
+
+            } catch (Exception ex) {
+                 System.out.print(ex.getMessage().toString());
+            }
+
         }
    }
 
