@@ -66,3 +66,11 @@ Provide feedback on the package service to ess-dive-support@lbl.gov.
   ```bash
   Rscript <function_file_name>.r
   ```
+  
+### Troubleshooting http errors: 
+If during your code development you encounter http errors, here are few common error codes and their suggested areas to look into based on your http codes. This doesn't replace checking the error messages but it could add an extra debugging help.
+- 400: Are you submitting your metadata abiding to the correct <a href="https://api-sandbox.ess-dive.lbl.gov/" target="_blank">schema</a> ?
+- 401: Did you check the validity of your access token used? is it expired? 
+- 404: Are you sure the set URL is correct? Did you check if you had any extra slashes in your base URL? 
+
+
