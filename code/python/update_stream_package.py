@@ -1,6 +1,5 @@
 from setup import *
 from requests_toolbelt.multipart.encoder import MultipartEncoder
-from setup import *
 
 
 id = ""  # TODO: Add your package identifier here.
