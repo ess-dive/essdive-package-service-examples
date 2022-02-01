@@ -1,3 +1,7 @@
+# Prerequisite dependency: requests_toolbelt
+# TODO: Install the requests_toolbelt module by running the following comand on your terminal 
+# $ pip install requests_toolbelt
+
 from setup import *
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
