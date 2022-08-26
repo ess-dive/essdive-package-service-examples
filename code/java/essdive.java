@@ -38,7 +38,7 @@ public static void main(String[] args) {
   
     //JSON objects variables
   JSONObject provider_spruce_json = new JSONObject();
-  JSONObject member = new JSONObject();
+  JSONObject identifier = new JSONObject();
   JSONObject funder = new JSONObject();
   JSONObject temporalCoverage = new JSONObject();
   JSONObject editor = new JSONObject();
@@ -56,18 +56,15 @@ public static void main(String[] args) {
   JSONArray JSON_LD_Description = new JSONArray();
   JSONArray keywords = new JSONArray();
   JSONArray variableMeasured = new JSONArray();
-           
-  // JSON_LD member assignment  
-  member.put("@id","http://orcid.org/0000-0001-7293-3561");
-  member.put("givenName","Paul J");
-  member.put("familyName","Hanson");
-  member.put("email","hansonpj@ornl.gov");
-  member.put("jobTitle","Principal Investigator");
 
-  // JSON_LD provider spruce assignment  
-  provider_spruce_json.put("name","SPRUCE");
-  provider_spruce_json.put("member",member);
-  
+  // JSON_LD identifier assignment
+  identifier.put("@type","PropertyValue");
+  identifier.put("propertyID","ess-dive");
+  identifier.put("value","1e6d50d3-9532-43fb-a63f-bdcb4350bf0c");
+
+  // JSON_LD provider spruce assignment
+  provider_spruce_json.put("identifier",identifier);
+
   // JSON_LD primary creator assignment  
   primary_Creator.put("@id","http://orcid.org/0000-0001-7293-3561");
   primary_Creator.put("givenName","Paul J");
