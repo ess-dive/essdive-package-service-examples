@@ -4,14 +4,11 @@
 
 
 provider_spruce = {
-   "name": "SPRUCE",
-   "member": {
-     "@id": "http://orcid.org/0000-0001-7293-3561",
-     "givenName": "Paul J",
-     "familyName": "Hanson",
-     "email": "hansonpj@ornl.gov",
-     "jobTitle": "Principal Investigator"
-   }
+    "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ess-dive",
+        "value": "1e6d50d3-9532-43fb-a63f-bdcb4350bf0c"
+    }
  }
 
 #Prepare the data package authors in the order that you would like them to appear in the citation.
