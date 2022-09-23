@@ -22,6 +22,8 @@ Provide feedback on the package service to ess-dive-support@lbl.gov.
 
     - [JSON-LD](https://github.com/ess-dive/essdive-package-service-examples/tree/master/data/JSON-LD)             ( JSON-LDs example files that demonstrate required fields usage. )
 
+- [demo-notebooks](https://github.com/ess-dive/essdive-package-service-examples/tree/master/demo-notebooks) (stand alone Jupyter Notebooks that demonstrate how to use specific API operations)
+
  **For all examples, you need to add your token into the token variable as well as adding any customizations to run certain functions.  For example, an identifier to run the get package function. You will find all the needed field with a *TODO* comment next to it.**
 
 #### To use the Java example you need to install `java 11.0.1 2018-10-16 LTS`:
