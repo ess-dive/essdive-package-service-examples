@@ -38,7 +38,8 @@ public static void main(String[] args) {
   
     //JSON objects variables
   JSONObject provider_spruce_json = new JSONObject();
-  JSONObject identifier = new JSONObject();
+
+  JSONObject project_identifier = new JSONObject();
   JSONObject funder = new JSONObject();
   JSONObject temporalCoverage = new JSONObject();
   JSONObject editor = new JSONObject();
@@ -57,13 +58,18 @@ public static void main(String[] args) {
   JSONArray keywords = new JSONArray();
   JSONArray variableMeasured = new JSONArray();
 
-  // JSON_LD identifier assignment
-  identifier.put("@type","PropertyValue");
-  identifier.put("propertyID","ess-dive");
-  identifier.put("value","1e6d50d3-9532-43fb-a63f-bdcb4350bf0c");
+
+  // JSON_LD project_identifier assignment
+
+  """
+  Click http://bit.ly/ess-dive-project to view a list of ESS projects and project PIs. If your project is in this list, find the project identifier in the "Project ID" column
+  """
+  project_identifier.put("@type","PropertyValue");
+  project_identifier.put("propertyID","ess-dive");
+  project_identifier.put("value","1e6d50d3-9532-43fb-a63f-bdcb4350bf0c");
 
   // JSON_LD provider spruce assignment
-  provider_spruce_json.put("identifier",identifier);
+  provider_spruce_json.put("project_identifier",project_identifier);
 
   // JSON_LD primary creator assignment  
   primary_Creator.put("@id","http://orcid.org/0000-0001-7293-3561");

@@ -2,7 +2,9 @@
 # Setup the JSON for the “provider”. This is the details about the project.
 # The project will be listed as the publisher in the citation.
 
-
+"""
+Click http://bit.ly/ess-dive-project to view a list of ESS projects and project PIs. If your project is in this list, find the project identifier in the "Project ID" column
+"""
 provider_spruce = {
     "identifier": {
         "@type": "PropertyValue",
