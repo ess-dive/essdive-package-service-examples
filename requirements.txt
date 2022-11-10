@@ -2,3 +2,5 @@ pandas
 requests
 ipython
 ipywidgets
+os
+json
