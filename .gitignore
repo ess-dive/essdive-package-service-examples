@@ -1,6 +1,8 @@
 *.Rproj
+*.pyc
 .RData
 .Rhistory
 .Rproj.user
 .idea/
-*.pyc
+.ipynb_checkpoints
+ESS-DIVE_Downloads/
