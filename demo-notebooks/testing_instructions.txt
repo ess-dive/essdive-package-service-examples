@@ -1,0 +1,40 @@
+A tested version of Search & Download has been created, named "Main_Site_Search_&_Download-Python-new-testable-example.ipynb"
+Modifications were made to handle our example dataset and improve error messages, but the core features of the notebook remain unchanged. 
+
+After cloning the repository, navigate to the directory "demo-notebooks"
+
+You must first install Pytest and nbval, using:
+
+```pip install pytest```
+
+then 
+
+```pip install nbval```
+
+After confirming that the testing framework has been installed, you need to provide a valid token from your ESS-DIVE account (new one needed every 24 hours):
+
+- Open "secrets.txt": enter your authentication token and save the file 
+
+NOTE: Authentication tokens for the same account vary between the specific site used (e.g. ess-dive production site vs. data-stage)
+Please ensure that you are retrieving the token from the correct site.
+"Main_Site_Search_&_Download-Python-new-testable-example.ipynb" uses the token from the ess-dive production site
+"Data-Stage_Search_&_Download-Python-new-testable-example.ipynb" uses the token from data-stage.ess-dive.lbl.gov
+
+You are now ready to run the tests:
+
+- Navigate to the "demo-notebooks" directory 
+- Enter the command: ```pytest --nbval "Main_Site_Search_&_Download-Python-new-testable-example.ipynb"```
+
+The tests will now run, and then conclude with a detailed record of passed and failed tests. 
+
+Known issues: 
+
+- If the notebook does not receive a correct response after the API call (in Cell 4), most cells in the notebook will also fail (typically 22 failed, 9 passed). 
+There are various causes to this problem; known ones include: an invalid token, ESS-DIVE being under maintenance, and if the search terms do not correspond to a valid dataset.
+
+- Cells 20 and onwards will fail if there is no CSV file found in the dataset. Note that the default example in the current version of Search & Download does not have a CSV file.
+
+- Cells 23 and onwards uses column names from the specific CSV file that is being opened. It will cause an error if the column names in the cells do not match up with those in the CSV file
+In both "Search_&_Download-Python-new-testable-example.ipynb" and "Data-Stage_Search_&_Download-Python-new-testable-example.ipynb," 
+we modified these cells to use our chosen dataset's column names. 
+If you choose to use a different example, you will need to update the column names accordingly. 
